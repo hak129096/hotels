@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+<?php
+ require_once("../pdo/database.php");
+ require_once("../pdo/classes.php");
+
+
+
+echo"<pre>";
+var_dump($hotels);
+echo"</pre>";
+exit(0);
+
+ ?>
+ <!DOCTYPE html>
 <html lang="ja">
 
 <head>
@@ -16,8 +28,6 @@
 		<article>
 			<p>ホテルの所在地を入力してください。所在地の一部でも構いません。</p>
 			<form action="list.php" method="get">
-			<form action="list.html" method="get">
-
 				<input type="text" name="address" />
 				<input type="submit" value="検索" />
 			</form>

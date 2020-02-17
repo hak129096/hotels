@@ -1,5 +1,35 @@
+<?php
+ require_once("../pdo/database.php");
+ require_once("../pdo/classes.php");
 
- <!DOCTYPE html>
+echo"<pre>";
+var_dump($hotels);
+echo"</pre>";
+exit(0);
+
+ ?>
+ $address = -1;
+ if(isset($_REQUEST["address"])){
+ $sc = $_REQUEST["address"];
+ }
+        
+ $pdo = connectDatabase();
+ $sql = "select * from hotels where (pref like :sc or city like :sc
+      or address like :sc)";
+
+$pstmt = $pdo->prepare($sql);
+$params = [];
+$params[":sc"] = "%$sc%";
+$pstmt->excute($params);
+$rs = $pstmt->fetchAll();
+disconnectDatabase($pdo);
+Shotels = [];
+ foreach ($rs as $record){
+ $id = intval($record["id"]);
+ $name = $record["name"];
+ }
+$pstmt 
+<!DOCTYPE html>
 <html lang="ja">
 
 <head>
@@ -12,7 +42,7 @@
 <body>
 	<header>
 		<h1>ホテル検索結果一覧</h1>
-		<p><a href="./entry.html">検索ページに戻る</a></p>
+		<p><a href="./entry.php">検索ページに戻る</a></p>
 	</header>
 	<main>
 		<article>
